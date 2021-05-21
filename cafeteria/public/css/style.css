@@ -1,0 +1,12 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.imagen-banner{
+    height: 49vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .8;
+    object-fit: cover;
+}

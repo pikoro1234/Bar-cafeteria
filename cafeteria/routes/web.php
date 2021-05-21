@@ -15,7 +15,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/crear', function () {
+    return view('crear');
+})->name('crear');
+
+Route::get('/principal', function () {
+    return view('principal');
+})->name('principal');
+
+Route::get('/add-cliente', function () {
+    return view('clientecrear');
+})->name('crear-cliente');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

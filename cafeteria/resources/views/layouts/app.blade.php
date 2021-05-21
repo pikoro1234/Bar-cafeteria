@@ -13,6 +13,12 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
+         <!-- css -->
+         <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        
+        <!-- bootstrap css-->
+        <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
+
         @livewireStyles
 
         <!-- Scripts -->
@@ -42,5 +48,11 @@
         @stack('modals')
 
         @livewireScripts
+
+        <!-- bootstrap js and jQuery-->
+        <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
+
+        <script src="{{asset('js/bootstrap.js')}}"></script>
+        
     </body>
 </html>
