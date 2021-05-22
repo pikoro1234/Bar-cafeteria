@@ -18,7 +18,7 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/crear', function () {
-    return view('crear');
+    return view('crearProducto');
 })->name('crear');
 
 Route::get('/principal', function () {
