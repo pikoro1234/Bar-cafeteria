@@ -15,6 +15,14 @@ class ProductController extends Controller
     }
 
 
+    function listadoProductos(){
+        
+        $productos = Producto::all();        
+
+        return \view('principal', compact('productos'));
+    }
+
+
 
     /* mostramos el formulario de crear producto */
     function mostrarFormCreate(){

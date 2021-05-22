@@ -23,7 +23,7 @@ Route::get('/crear-producto', [ProductController::class, 'mostrarFormCreate'])->
 
 Route::post('/crear-producto', [ProductController::class, 'crearProducto'])->name('create-product');
 
-Route::get('/principal', [ProductController::class, 'listadoPrincipal'])->name('principal');
+Route::get('/principal', [ProductController::class, 'listadoProductos'])->name('principal');
 
 Route::get('/add-cliente', [ProductController::class, 'formCliente'])->name('crear-cliente');
 
