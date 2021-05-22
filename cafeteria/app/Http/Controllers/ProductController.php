@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Producto;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -23,7 +24,30 @@ class ProductController extends Controller
 
 
     /* creacion de productos */
-    function crearProducto(){
+    function crearProducto(Request $request){
+
+        $producto = new Producto;
+
+        $producto->foto = $request->imagen;
+
+        $producto->nombre = $request->nombre;
+
+        $producto->descripcion = $request->descripcion;
+
+        $producto->estado = $request->estado;
+
+        $producto->precio = $request->precio;
+
+        $producto->categoria = $request->categoria;
+
+        $producto->distribuidor = $request->distribuidor;
+
+
+        $producto->save();
+
+        /* return back()->with('mensaje','Producto Creado'); */
+
+        return view('principal',)->with('mensaje','Producto Creado');
 
     }
 
