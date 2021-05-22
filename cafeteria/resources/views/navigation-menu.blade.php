@@ -18,7 +18,7 @@
                     <x-jet-nav-link href="{{ route('principal') }}" :active="request()->routeIs('principal')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link> 
-                    <x-jet-nav-link href="{{ route('crear') }}" :active="request()->routeIs('crear')">
+                    <x-jet-nav-link href="{{ route('create-product') }}" :active="request()->routeIs('create-product')">
                         {{ __('Crear') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('crear-cliente') }}" :active="request()->routeIs('crear-cliente')">

@@ -3,7 +3,9 @@
 <h1 class="text-center mt-lg-5 mb-lg-5 mt-3 mb-5">Crear Producto</h1>
 <div class="container mb-lg-5 mb-4">
     <div class="card mb-lg-5 mb-4">
-        <form class="mb-lg-5 mb-4 p-lg-5 p-4">
+        <form class="mb-lg-5 mb-4 p-lg-5 p-4" method="POST">
+
+            @csrf
 
             <div class="input-group mb-3">                
                 <div class="custom-file">
