@@ -3,7 +3,7 @@
 use Illuminate\Routing\Controller as BaseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoriaController;
-use App\Http\Controllers\DistributedController;
+use App\Http\Controllers\DistribuidorController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -43,8 +43,8 @@ Route::post('/crear-categoria', [CategoriaController::class, 'crearCategoria'])-
 
 
 /* RUTAS PARA LOS DISTRIBUIDORES */
-Route::get('/crear-distribuidor', [DistributedController::class, 'formDistribuidor'])->name('create-distributed');
+Route::get('/crear-distribuidor', [DistribuidorController::class, 'formDistribuidor'])->name('create-distributed');
 
-Route::post('/crear-distribuidor', [DistributedController::class, 'crearDistribuidor'])->name('create-distributed');
+Route::post('/crear-distribuidor', [DistribuidorController::class, 'crearDistribuidor'])->name('create-distributed');
 
 

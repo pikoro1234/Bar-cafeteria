@@ -13,4 +13,15 @@ class CategoriaController extends Controller
 
         return \view('crearCategoria');
     }
+
+    function crearCategoria(Request $request){
+
+        $categoria = new Categoria;
+
+        $categoria->nombre = $request->nombreCategoria;
+
+        $categoria->save();
+
+        return back()->with('mensaje','Categoria Creado');
+    }
 }
