@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Categorias extends Migration
+class Distribuidores extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class Categorias extends Migration
      */
     public function up()
     {
-        Schema::create('categorias', function (Blueprint $table) {
+        Schema::create('distribuidores', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');    
-            $table->foreignId('idproducto')->constrained('productos');          
-            $table->timestamps();            
+            $table->timestamps();                             
         });
     }
 
@@ -28,6 +27,6 @@ class Categorias extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorias');
+        Schema::dropIfExists('distribuidores');
     }
 }

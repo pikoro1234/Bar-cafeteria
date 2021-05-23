@@ -22,6 +22,9 @@ class Productos extends Migration
             $table->float('precio', 8, 2);
             $table->string('categoria');
             $table->string('distribuidor');
+            $table->foreignId('categoria_id')->constrained('categorias');  
+            $table->foreignId('usuario_id')->constrained('users');  
+            $table->foreignId('dist_id')->constrained('distribuidores');   
             $table->timestamps();            
         });
     }
