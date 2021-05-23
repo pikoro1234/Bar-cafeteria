@@ -14,6 +14,6 @@ class Controller extends BaseController
 
     function dashBoard(){
 
-        return view('dashboard');
+        return \view('dashboard');
     }
 }

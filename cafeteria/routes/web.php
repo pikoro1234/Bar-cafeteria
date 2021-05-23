@@ -2,6 +2,9 @@
 
 use Illuminate\Routing\Controller as BaseController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\DistributedController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
+/* RUTAS PARA LOS PRODUCTOS */
 Route::get('/', [ProductController::class, 'index'])->name('welcome');
 
 Route::get('/crear-producto', [ProductController::class, 'mostrarFormCreate'])->name('create-product');
@@ -29,4 +31,20 @@ Route::get('/add-cliente', [ProductController::class, 'formCliente'])->name('cre
 
 Route::post('/add-cliente', [ProductController::class, 'crearCliente'])->name('crear-cliente');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [Controller::class, 'dashBoard'])->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [ProductController::class, 'dashBoard'])->name('dashboard');
+
+
+
+/* RUTAS PARA LAS CATEGORIAS */
+Route::get('/crear-categoria', [CategoriaController::class, 'formCategoria'])->name('create-category');
+
+Route::post('/crear-categoria', [CategoriaController::class, 'crearCategoria'])->name('create-category');
+
+
+
+/* RUTAS PARA LOS DISTRIBUIDORES */
+Route::get('/crear-distribuidor', [DistributedController::class, 'formDistribuidor'])->name('create-distributed');
+
+Route::post('/crear-distribuidor', [DistributedController::class, 'crearDistribuidor'])->name('create-distributed');
+
+

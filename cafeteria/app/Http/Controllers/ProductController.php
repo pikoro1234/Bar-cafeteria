@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Categoria;
+use App\Models\Distribuidor;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -73,13 +74,6 @@ class ProductController extends Controller
     function listadoPrincipal() {
         
         return \view('principal');
-    }
-
-
-
-    function formCliente() {
-        
-        return \view('clientecrear');
     }
 
 
