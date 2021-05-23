@@ -21,7 +21,7 @@
         @foreach($productos as $product)
         <tr>
         <th scope="row">{{$product['id']}}</th>
-        <td><a href="">{{$product['nombre']}}</a></td>
+        <td><a href="{{route('edit-product',$product['id'])}}">{{$product['nombre']}}</a></td>
         <td>{{$product['estado']}}</td>
         <td>{{$product['precio']}}</td>
         <td>{{$product['categoria_id']}}</td>

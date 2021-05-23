@@ -27,7 +27,7 @@ Route::post('/crear-producto', [ProductController::class, 'crearProducto'])->nam
 
 Route::get('/principal', [ProductController::class, 'listadoProductos'])->name('principal');
 
-Route::get('editarProducto/{id}', [ProductController::class,'editarProducto'])->name('edit-product');
+Route::get('/principal/editarProducto/{id}', [ProductController::class,'editarProducto'])->name('edit-product');
 
 Route::get('/add-cliente', [ProductController::class, 'formCliente'])->name('crear-cliente');
 

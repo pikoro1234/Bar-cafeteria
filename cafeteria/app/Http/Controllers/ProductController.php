@@ -68,9 +68,14 @@ class ProductController extends Controller
 
     /* editar producto */
     function editarProducto(Request $request,$id){
+
         $datosProductos = Producto::find($id);
 
-        return view('editarProducto', compact('datosProductos'));
+        $categorias = Categoria::all();
+
+        $distribuidores = Distribuidor::all();
+
+        return view('editarProducto', compact('datosProductos', 'categorias', 'distribuidores'));
     }
 
 
