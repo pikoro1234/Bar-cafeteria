@@ -59,7 +59,7 @@
                 </select>
             </div>
             <br>
-
+            
             <div class="input-group mb-3">
                 <select class="custom-select" id="distribuidor" name="distribuidor">
                     <option selected>Distribuidor productos</option>                    

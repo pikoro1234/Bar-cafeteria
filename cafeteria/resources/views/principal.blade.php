@@ -24,8 +24,8 @@
         <td><a href="">{{$product['nombre']}}</a></td>
         <td>{{$product['estado']}}</td>
         <td>{{$product['precio']}}</td>
-        <td>{{$product['categoria']}}</td>
-        <td>{{$product['distribuidor']}}</td>
+        <td>{{$product['categoria_id']}}</td>
+        <td>{{$product['distribuidor_id']}}</td>
         </tr>
         @endforeach
     @endif

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Categoria;
 use App\Models\Distribuidor;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -38,7 +40,7 @@ class ProductController extends Controller
 
         $producto = new Producto;
 
-        $product->user_id = Auth::id();
+        $producto->usuario_id = Auth::id();
 
         $producto->foto = $request->imagen;
 
@@ -50,23 +52,15 @@ class ProductController extends Controller
 
         $producto->precio = $request->precio;
 
-        $producto->categoria = $request->categoria;
+        $producto->categoria_id = $request->categoria;
 
-        $producto->distribuidor = $request->distribuidor;
-
-        $categoria = new Categoria;
-
-        $categoria->nombre = $request->categoria;
-
-        $categoria->idproducto = $producto->id;
+        $producto->distribuidor_id = $request->distribuidor;
 
         $producto->save();
 
-        $categoria->save();
-
         /* return back()->with('mensaje','Producto Creado'); */
 
-        return view('principal',);
+        return redirect()->route('principal');
 
     }
 
