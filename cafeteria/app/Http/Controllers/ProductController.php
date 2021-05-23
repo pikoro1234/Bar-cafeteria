@@ -19,6 +19,8 @@ class ProductController extends Controller
     }
 
 
+
+    /* mostramos todos los productos */
     function listadoProductos(){
         
         $productos = Producto::all();   
@@ -33,6 +35,7 @@ class ProductController extends Controller
 
         return \view('crearProducto');
     }
+
 
 
     /* creacion de productos */
@@ -61,16 +64,15 @@ class ProductController extends Controller
         /* return back()->with('mensaje','Producto Creado'); */
 
         return redirect()->route('principal');
-
     }
 
+    /* editar producto */
+    function editarProducto(Request $request,$id){
+        $datosProductos = Producto::find($id);
 
-
-    /* listado principal del dashboard */
-    function listadoPrincipal() {
-        
-        return \view('principal');
+        return view('editarProducto', compact('datosProductos'));
     }
+
 
 
 }
