@@ -19,7 +19,7 @@ class ProductController extends Controller
 
     function listadoProductos(){
         
-        $productos = Producto::all();        
+        $productos = Producto::all();   
 
         return \view('principal', compact('productos'));
     }
@@ -37,6 +37,8 @@ class ProductController extends Controller
     function crearProducto(Request $request){
 
         $producto = new Producto;
+
+        $product->user_id = Auth::id();
 
         $producto->foto = $request->imagen;
 
@@ -64,7 +66,7 @@ class ProductController extends Controller
 
         /* return back()->with('mensaje','Producto Creado'); */
 
-        return view('principal',)->with('mensaje','Producto Creado');
+        return view('principal',);
 
     }
 

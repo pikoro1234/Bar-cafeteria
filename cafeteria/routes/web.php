@@ -40,6 +40,8 @@ Route::get('/crear-categoria', [CategoriaController::class, 'formCategoria'])->n
 
 Route::post('/crear-categoria', [CategoriaController::class, 'crearCategoria'])->name('create-category');
 
+Route::get('/crear-producto', [CategoriaController::class, 'listadoCategorias'])->name('create-product');
+
 
 
 /* RUTAS PARA LOS DISTRIBUIDORES */

@@ -24,4 +24,5 @@ class DistribuidorController extends Controller
         return back()->with('mensaje','Distribuidor Creado');
         
     }
+
 }

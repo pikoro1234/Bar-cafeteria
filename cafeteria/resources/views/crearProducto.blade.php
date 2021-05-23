@@ -50,25 +50,24 @@
 
             <div class="input-group mb-3">
                 <select class="custom-select" id="categoria" name="categoria">
-                    <option selected>Categoria producto</option>
-                    <option value="panes">panes</option>
-                    <option value="sandwich">sandwich</option>
-                    <option value="desayunos">desayunos</option>
-                    <option value="almuerzos">almuerzos</option>
-                    <option value="dulces">dulces</option>
-                    <option value="postres">postres</option>
+                    <option >Categoria producto</option>
+                    @if ($categorias)
+                        @foreach($categorias as $cat)
+                        <option value="{{$cat['id']}}">{{$cat['nombre']}}</option>                        
+                        @endforeach
+                    @endif                                        
                 </select>
             </div>
             <br>
 
             <div class="input-group mb-3">
                 <select class="custom-select" id="distribuidor" name="distribuidor">
-                    <option selected>Distribuidor productos</option>
-                    <option value="1">mercado 1</option>
-                    <option value="2">mercado 2</option>
-                    <option value="3">mercado 3</option>
-                    <option value="4">mercado 4</option>
-                    <option value="5">mercado 5</option>
+                    <option selected>Distribuidor productos</option>                    
+                    @if ($distribuidors)
+                        @foreach($distribuidors as $dist)
+                        <option value="{{$dist['id']}}">{{$dist['nombre']}}</option>                        
+                        @endforeach
+                    @endif                     
                 </select>
             </div>
             <br>
