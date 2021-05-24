@@ -13,13 +13,32 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     /* funcion que se ejecuta el la raiz */
-    function index(){
+    function index(Request $request){
 
-        $productos = Producto::all(); 
+        /* select * from productos JOIN categorias on productos.categoria_id = categorias.id where productos.categoria_id = 11  */
 
         $categorias = Categoria::all();
 
-        return \view('welcome', compact('productos','categorias'));
+        if ($request->categoriaHome) {
+
+            $categoria = $request->categoriaHome;
+
+            $categoria = intval($categoria);
+
+            $productosA = DB::table('categorias')
+            ->join('productos', 'productos.categoria_id', '=', 'categorias.id')
+            ->where('productos.categoria_id', '=', $categoria)
+            ->get();
+            
+            return \view('welcome', compact('productosA','categorias'));
+
+        }else{
+
+            $productos = Producto::all(); 
+
+            return \view('welcome', compact('productos','categorias'));
+        }
+        
     }
 
 
@@ -88,6 +107,7 @@ class ProductController extends Controller
         return view('editarProducto', compact('datosProductos', 'categorias', 'distribuidores'));
     }
 
+    /* actualizar producto escogido */
     function actualizarProducto(Request $request,$id){
 
         $prodActualizar = Producto::find($id);
@@ -127,9 +147,18 @@ class ProductController extends Controller
             $prodActualizar->distribuidor_id = $request->distribuidorProd;
         }
 
-
         $prodActualizar->save();
         
+        return redirect()->route('principal');
+    }
+
+    /* elimimar producto */
+    function eliminarProducto($id){
+
+        $eliminarProducto = Producto::find($id);
+
+        $eliminarProducto->delete();
+
         return redirect()->route('principal');
     }
 

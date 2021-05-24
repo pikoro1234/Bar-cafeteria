@@ -31,6 +31,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/principal/editarProducto/
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/principal/editarProducto/{id}', [ProductController::class,'actualizarProducto'])->name('edit-product');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/principal/eliminarProducto/{id}', [ProductController::class,'eliminarProducto'])->name('delete-product');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/add-cliente', [ProductController::class, 'formCliente'])->name('crear-cliente');
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/add-cliente', [ProductController::class, 'crearCliente'])->name('crear-cliente');

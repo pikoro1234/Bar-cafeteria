@@ -48,7 +48,8 @@
                     <div class="col-12 order-lg-3 order-3">
                         <div class="row">                       
                             <div class="col-lg-3 col-12">
-                                <form action="" class="form">
+                                <form method="GET" action="{{route ('welcome') }}">
+                                    @csrf
                                     <div class="input-group mb-3">
                                         <select class="custom-select" id="inputGroupSelect02" name="categoriaHome">
                                             <option >Filtrar categorias</option>
@@ -131,46 +132,98 @@
 
         <div class="container mt-lg-5 mt-5 pt-lg-5 pt-5 mb-lg-5 mb-5 pb-lg-5 pb-5">
             <div class="row">
-            @if ($productos)
-                @foreach($productos as $product)
-                    <div class="col-lg-4 col-12 mb-lg-5 mb-5">
-                        <div class="card" style="width: 20rem;">
-                            @if($product['estado'] == 'descuento')
-                                <span class="badge badge-success badge-flotante">{{$product['estado']}}</span>
-                            @elseif($product['estado'] == 'promocion')
-                                <span class="badge badge-secondary badge-flotante">{{$product['estado']}}</span>
-                            @elseif($product['estado'] == 'agotados')
-                                <span class="badge badge-danger badge-flotante">{{$product['estado']}}</span>
-                            @endif
-                            <img src="{{ asset('uploads/') }}/{{$product['foto']}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bold text-uppercase">{{$product['nombre']}}</h5>
-                                <p class="card-text">{{$product['descripcion']}}</p>
-                                <p class="card-text"><span class="font-weight-bold">Precio: </span> {{$product['precio']}}</p>
-                                @if ($categorias)
-                                    @foreach($categorias as $cat)
-                                        @if ($cat['id'] == $product['categoria_id'])
-                                            <p class="card-text"><span class="font-weight-bold">Categoria: </span> {{$cat['nombre']}}</p>
+                <?php if(isset($_GET['categoriaHome'])){?>
+                    @if($productosA)
+                        @foreach($productosA as $product)
+                            <div class="col-lg-4 col-12 mb-lg-5 mb-5">
+                                <div class="card" style="width: 20rem;">
+                                    @if($product->estado == 'descuento')
+                                        <span class="badge badge-success badge-flotante">{{$product->estado}}</span>
+                                    @elseif($product->estado == 'promocion')
+                                        <span class="badge badge-secondary badge-flotante">{{$product->estado}}</span>
+                                    @elseif($product->estado == 'agotados')
+                                        <span class="badge badge-danger badge-flotante">{{$product->estado}}</span>
+                                    @endif
+                                    <img src="{{ asset('uploads/') }}/{{$product->foto}}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title font-weight-bold text-uppercase">{{$product->nombre}}</h5>
+                                        <p class="card-text">{{$product->descripcion}}</p>
+                                        <p class="card-text"><span class="font-weight-bold">Precio: </span> {{$product->precio}}</p>
+                                        @if ($categorias)
+                                            @foreach($categorias as $cat)
+                                                @if ($cat['id'] == $product->categoria_id)
+                                                    <p class="card-text"><span class="font-weight-bold">Categoria: </span> {{$cat['nombre']}}</p>
+                                                @endif 
+                                            @endforeach
                                         @endif 
-                                    @endforeach
-                                @endif 
 
 
-                                @if (Route::has('login'))
-                                <div class="px-6">
-                                    @auth
-                                        <a href="{{route('edit-product',$product['id'])}}" class="btn btn-primary">Editar</a>
-                                    @else
-                                    <a href="#" class="btn btn-primary">Ver mas...</a>
-                                    @endauth
-                                </div>
+                                        @if (Route::has('login'))
+                                        <div class="px-6">
+                                            @auth
+                                                <a href="{{route('edit-product',$product->id)}}" class="btn btn-primary">Editar</a>
+                                            @else
+                                            <a href="#" class="btn btn-primary">Ver mas...</a>
+                                            @endauth
+                                        </div>
+                                        @endif
+                                        
+                                    </div>
+                                </div> 
+                            </div>                               
+                        @endforeach
+                    @endif
+                <?php }else{ ?>
+                    @if($productosA)
+                        @foreach($productos as $product)
+                        <div class="col-lg-4 col-12 mb-lg-5 mb-5">
+                            <div class="card" style="width: 20rem;">
+                                @if($product['estado'] == 'descuento')
+                                    <span class="badge badge-success badge-flotante">{{$product['estado']}}</span>
+                                @elseif($product['estado'] == 'promocion')
+                                    <span class="badge badge-secondary badge-flotante">{{$product['estado']}}</span>
+                                @elseif($product['estado'] == 'agotados')
+                                    <span class="badge badge-danger badge-flotante">{{$product['estado']}}</span>
                                 @endif
-                                
-                            </div>
-                        </div> 
-                    </div>                               
-                @endforeach
-            @endif                
+                                <img src="{{ asset('uploads/') }}/{{$product['foto']}}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title font-weight-bold text-uppercase">{{$product['nombre']}}</h5>
+                                    <p class="card-text">{{$product['descripcion']}}</p>
+                                    <p class="card-text"><span class="font-weight-bold">Precio: </span> {{$product['precio']}}</p>
+                                    @if ($categorias)
+                                        @foreach($categorias as $cat)
+                                            @if ($cat['id'] == $product['categoria_id'])
+                                                <p class="card-text"><span class="font-weight-bold">Categoria: </span> {{$cat['nombre']}}</p>
+                                            @endif 
+                                        @endforeach
+                                    @endif 
+
+
+                                    @if (Route::has('login'))
+                                    <div class="px-6">
+                                        @auth
+                                            <a href="{{route('edit-product',$product['id'])}}" class="btn btn-primary">Editar</a>
+                                        @else
+                                        <a href="#" class="btn btn-primary">Ver mas...</a>
+                                        @endauth
+                                    </div>
+                                    @endif
+                                    
+                                </div>
+                            </div> 
+                        </div>                               
+                        @endforeach
+                    @endif
+                    <?php }?>  
+
+
+
+
+
+
+
+
+                        
             </div>
         </div>
 
