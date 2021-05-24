@@ -68,11 +68,11 @@
                             
                             <div class="col-lg-3 col-12">
                                 <form action="" class="form">                            
-                                    <div class="input-group mb-3"><input type="number" name="desde" id="desde" min="0" class="form-control" placeholder="desde" aria-label="Username" aria-describedby="basic-addon1">
+                                    <div class="input-group mb-3"><input type="number" name="desde" id="desde" min="1" max="3000" class="form-control" placeholder="desde" aria-label="Username" aria-describedby="basic-addon1">
                                     </div>
 
                                     <div class="input-group mb-3">
-                                    <input type="number"  name="hasta" id="hasta" max="3000" class="form-control" placeholder="hasta" aria-label="Username" aria-describedby="basic-addon1">
+                                    <input type="number"  name="hasta" id="hasta" max="3000" min="1" class="form-control" placeholder="hasta" aria-label="Username" aria-describedby="basic-addon1">
                                     </div>
 
                                     <div class="input-group mb-3">
@@ -132,8 +132,7 @@
 
         <div class="container mt-lg-5 mt-5 pt-lg-5 pt-5 mb-lg-5 mb-5 pb-lg-5 pb-5">
             <div class="row">
-                <?php if(isset($_GET['categoriaHome'])){?>
-                    @if($productosA)
+                <?php if(isset($_GET['categoriaHome']) || (isset($_GET['desde']) && isset($_GET['hasta']) ) ){?>                    
                         @foreach($productosA as $product)
                             <div class="col-lg-4 col-12 mb-lg-5 mb-5">
                                 <div class="card" style="width: 20rem;">
@@ -172,9 +171,7 @@
                                 </div> 
                             </div>                               
                         @endforeach
-                    @endif
                 <?php }else{ ?>
-                    @if($productosA)
                         @foreach($productos as $product)
                         <div class="col-lg-4 col-12 mb-lg-5 mb-5">
                             <div class="card" style="width: 20rem;">
@@ -212,8 +209,7 @@
                                 </div>
                             </div> 
                         </div>                               
-                        @endforeach
-                    @endif
+                        @endforeach                    
                     <?php }?>  
 
 

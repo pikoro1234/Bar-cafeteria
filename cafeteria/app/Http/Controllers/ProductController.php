@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     /* funcion que se ejecuta el la raiz */
-    function index(Request $request){
-
-        /* select * from productos JOIN categorias on productos.categoria_id = categorias.id where productos.categoria_id = 11  */
+    function index(Request $request){       
 
         $categorias = Categoria::all();
 
@@ -32,7 +30,23 @@ class ProductController extends Controller
             
             return \view('welcome', compact('productosA','categorias'));
 
-        }else{
+        }elseif($request->desde && $request->hasta){
+
+            $desde = intval($request->desde);
+
+            $hasta = intval($request->hasta);
+
+            $productosA = DB::table('productos')
+            ->whereBetween('precio', [$desde, $hasta])
+            ->get();
+
+            return \view('welcome', compact('productosA','categorias'));
+        }
+        
+        
+        
+        
+        else{
 
             $productos = Producto::all(); 
 
