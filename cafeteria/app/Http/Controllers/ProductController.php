@@ -41,12 +41,28 @@ class ProductController extends Controller
             ->get();
 
             return \view('welcome', compact('productosA','categorias'));
-        }
-        
-        
-        
-        
-        else{
+
+        }elseif($request->fecha){
+
+            $fecha = $request->fecha;
+
+            if ($fecha == 'ascendente') {
+                
+                $productosA = DB::table('productos')
+                ->orderBy('created_at', 'asc')
+                ->get();
+            }
+
+            if($fecha == 'descendente'){
+
+                $productosA = DB::table('productos')
+                ->orderBy('created_at', 'desc')
+                ->get();
+            }
+
+            return \view('welcome', compact('productosA','categorias'));
+
+        }else{
 
             $productos = Producto::all(); 
 

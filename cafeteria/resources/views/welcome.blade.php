@@ -68,12 +68,11 @@
                             
                             <div class="col-lg-3 col-12">
                                 <form action="" class="form">                            
-                                    <div class="input-group mb-3"><input type="number" name="desde" id="desde" min="1" max="3000" class="form-control" placeholder="desde" aria-label="Username" aria-describedby="basic-addon1">
-                                    </div>
-
                                     <div class="input-group mb-3">
-                                    <input type="number"  name="hasta" id="hasta" max="3000" min="1" class="form-control" placeholder="hasta" aria-label="Username" aria-describedby="basic-addon1">
-                                    </div>
+                                        <input type="number" name="desde" id="desde" min="1" max="3000" class="form-control mr-lg-2 mr-2" placeholder="desde" aria-label="Username" aria-describedby="basic-addon1">
+
+                                        <input type="number"  name="hasta" id="hasta" max="3000" min="1" class="form-control ml-lg-2 ml-2" placeholder="hasta" aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>                                    
 
                                     <div class="input-group mb-3">
                                         <button class="btn btn-outline-success my-2 my-sm-0 px-lg-4 mx-lg-4" type="submit">Filtar precios</button>
@@ -82,7 +81,7 @@
                             </div>
 
                             <div class="col-lg-3 col-12">
-                                <form action="" class="form">
+                                <!-- <form action="" class="form">
                                     <div class="input-group mb-3">
                                         <select class="custom-select" name="precio" aria-label="Default select example">
                                             <option value="">Ordenar por Precio</option>
@@ -93,7 +92,7 @@
                                     <div class="input-group mb-3">
                                         <button class="btn btn-outline-success my-2 my-sm-0 px-lg-4 mx-lg-4" type="submit">Ordenar precio</button>
                                     </div>
-                                </form>                                 
+                                </form>  -->                                
                                 <form action="" class="form">
                                     <div class="input-group mb-3">                        
                                         <select class="custom-select" name="fecha" aria-label="Default select example">
@@ -132,7 +131,7 @@
 
         <div class="container mt-lg-5 mt-5 pt-lg-5 pt-5 mb-lg-5 mb-5 pb-lg-5 pb-5">
             <div class="row">
-                <?php if(isset($_GET['categoriaHome']) || (isset($_GET['desde']) && isset($_GET['hasta']) ) ){?>                    
+                <?php if( isset($_GET['categoriaHome']) || (isset($_GET['desde']) && isset($_GET['hasta'])) || isset($_GET['fecha']) ){?>                    
                         @foreach($productosA as $product)
                             <div class="col-lg-4 col-12 mb-lg-5 mb-5">
                                 <div class="card" style="width: 20rem;">
@@ -155,8 +154,7 @@
                                                 @endif 
                                             @endforeach
                                         @endif 
-
-
+                                        <p class="card-text"><span class="font-weight-bold">Fecha: </span><small class="text-muted">{{$product->created_at}}</small></p>
                                         @if (Route::has('login'))
                                         <div class="px-6">
                                             @auth
@@ -194,8 +192,7 @@
                                             @endif 
                                         @endforeach
                                     @endif 
-
-
+                                    <p class="card-text"><span class="font-weight-bold">Fecha: </span><small class="text-muted">{{$product['created_at']}}</small></p>
                                     @if (Route::has('login'))
                                     <div class="px-6">
                                         @auth
