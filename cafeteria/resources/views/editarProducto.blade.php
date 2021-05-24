@@ -32,19 +32,19 @@
             
             <div class="input-group mb-3">
                 <select class="custom-select" id="estado" name="estadoProd">
-                    @if(strcmp($datosProductos->estado,'descuento'))
+                    @if($datosProductos->estado == 'descuento')
                         <option value="{{$datosProductos->estado}}" selected>{{$datosProductos->estado}}</option>                        
-                        <option value="promocion">promoción</option>
+                        <option value="promocion">promoción</option>                        
                         <option value="agotados">agotados</option> 
 
-                    @elseif(strcmp($datosProductos->estado,'promocion')) 
+                    @elseif($datosProductos->estado == 'promocion') 
                         <option value="{{$datosProductos->estado}}" selected>{{$datosProductos->estado}}</option>
-                        <option value="descuentro">descuentro</option>                        
+                        <option value="descuento">descuento</option>                    
                         <option value="agotados">agotados</option>
 
-                    @elseif(strcmp($datosProductos->estado,'agotados')) 
+                    @elseif($datosProductos->estado == 'agotados')
                         <option value="{{$datosProductos->estado}}" selected>{{$datosProductos->estado}}</option>
-                        <option value="descuentro">descuentro</option>
+                        <option value="descuento">descuento</option>                     
                         <option value="promocion">promoción</option>
                     @endif                                                                                                                     
                 </select>
