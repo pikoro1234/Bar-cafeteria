@@ -7,23 +7,31 @@
 
 <div class="container mb-lg-5 mb-4">
     <div class="card mb-lg-5 mb-4">
-        <form class="mb-lg-5 mb-4 p-lg-5 p-4" method="POST" action="{{route ('create-product')}}">
+        <form class="mb-lg-5 mb-4 p-lg-5 p-4" method="POST" action="{{route ('edit-product', $datosProductos->id)}}">
 
             @csrf
 
             <div class="input-group mb-3">                
-                <input type="text" class="form-control" placeholder="Nombre producto" id="nombre" name="nombre" aria-label="Nombre producto" aria-describedby="basic-addon1" value="{{$datosProductos->nombre}}">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="imagen" name="imagenProd" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Subir imagen</label>
+                </div>
+            </div>
+            <br>
+
+            <div class="input-group mb-3">                
+                <input type="text" class="form-control" placeholder="Nombre producto" id="nombre" name="nombreProd" aria-label="Nombre producto" aria-describedby="basic-addon1" value="{{$datosProductos->nombre}}">
             </div>
             <br>
 
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Descripcion producto</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" id="descripcion" name="descripcion">{{$datosProductos->descripcion}}</textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" id="descripcion" name="descripcionProd">{{$datosProductos->descripcion}}</textarea>
             </div>
             <br>
             
             <div class="input-group mb-3">
-                <select class="custom-select" id="estado" name="estado">
+                <select class="custom-select" id="estado" name="estadoProd">
                     @if(strcmp($datosProductos->estado,'descuento'))
                         <option value="{{$datosProductos->estado}}" selected>{{$datosProductos->estado}}</option>                        
                         <option value="promocion">promoción</option>
@@ -48,12 +56,12 @@
                     <span class="input-group-text">€</span>
                     <span class="input-group-text">8.2</span>
                 </div>
-                <input type="text" class="form-control" id="precio" name="precio" aria-label="Amount (to the nearest dollar)" value="{{$datosProductos->precio}}">
+                <input type="text" class="form-control" id="precio" name="precioProd" aria-label="Amount (to the nearest dollar)" value="{{$datosProductos->precio}}">
             </div>
             <br>
             
             <div class="input-group mb-3">
-                <select class="custom-select" id="categoria" name="categoria">
+                <select class="custom-select" id="categoria" name="categoriaProd">
                 @if ($categorias)
                     @foreach($categorias as $cat)
                         @if ($datosProductos->categoria_id == $cat['id'])
@@ -68,7 +76,7 @@
             <br>
                         
             <div class="input-group mb-3">
-                <select class="custom-select" id="distribuidor" name="distribuidor">
+                <select class="custom-select" id="distribuidor" name="distribuidorProd">
                     <@if ($distribuidores)
                         @foreach($distribuidores as $dist)
                             @if ($datosProductos->distribuidor_id == $dist['id'])

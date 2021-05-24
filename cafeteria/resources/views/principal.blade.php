@@ -26,6 +26,7 @@
         <td>{{$product['precio']}}</td>
         <td>{{$product['categoria_id']}}</td>
         <td>{{$product['distribuidor_id']}}</td>
+        <td><a href="" class="btn btn-outline-secondary">Eliminar</a></td>
         </tr>
         @endforeach
     @endif

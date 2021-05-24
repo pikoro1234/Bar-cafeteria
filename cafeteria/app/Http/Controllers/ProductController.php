@@ -78,6 +78,51 @@ class ProductController extends Controller
         return view('editarProducto', compact('datosProductos', 'categorias', 'distribuidores'));
     }
 
+    function actualizarProducto(Request $request,$id){
+
+        $prodActualizar = Producto::find($id);
+
+        if ($request->imagenProd) {
+            
+            $prodActualizar->foto = $request->imagenProd;
+        }
+
+        if ($request->nombreProd) {
+            
+            $prodActualizar->nombre = $request->nombreProd;
+        }
+
+        if ($request->descripcionProd) {
+            
+            $prodActualizar->descripcion = $request->descripcionProd;
+        }
+
+        if ($request->estadoProd) {
+            
+            $prodActualizar->estado = $request->estadoProd;
+        }
+
+        if ($request->precioProd) {
+            
+            $prodActualizar->precio = $request->precioProd;
+        }
+
+        if ($request->categoriaProd) {
+            
+            $prodActualizar->categoria_id = $request->categoriaProd;
+        }
+
+        if ($request->distribuidorProd) {
+            
+            $prodActualizar->distribuidor_id = $request->distribuidorProd;
+        }
+
+
+        $prodActualizar->save();
+        
+        return redirect()->route('principal');
+    }
+
 
 
 }
