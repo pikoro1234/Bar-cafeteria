@@ -133,7 +133,7 @@
             <div class="row">
             @if ($productos)
                 @foreach($productos as $product)
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-4 col-12 mb-lg-5 mb-5">
                         <div class="card" style="width: 20rem;">
                             @if($product['estado'] == 'descuento')
                                 <span class="badge badge-success badge-flotante">{{$product['estado']}}</span>

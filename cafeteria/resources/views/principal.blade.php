@@ -9,19 +9,22 @@
     <thead>
         <tr>
         <th scope="col">#</th>
+        <th scope="col">Imagen</th>
         <th scope="col">Nombre</th>
         <th scope="col">Estado</th>
         <th scope="col">Precio</th>
         <th scope="col">Categoria</th>
         <th scope="col">Distribuidor</th>
+        <th scope="col">Eliminar    </th>
         </tr>
     </thead>
     <tbody>
     @if ($productos)
         @foreach($productos as $product)
-        <tr>
+        <tr>        
         <th scope="row">{{$product['id']}}</th>
-        <td><a href="{{route('edit-product',$product['id'])}}">{{$product['nombre']}}</a></td>
+        <td><a href="{{route('edit-product',$product['id'])}}"><img src="{{ asset('uploads/') }}/{{$product['foto']}}" class="img-listado" alt="..."></a></td>        
+        <td class="font-bold">{{$product['nombre']}}</td>
         <td>{{$product['estado']}}</td>
         <td>{{$product['precio']}}</td>
         <td>{{$product['categoria_id']}}</td>
