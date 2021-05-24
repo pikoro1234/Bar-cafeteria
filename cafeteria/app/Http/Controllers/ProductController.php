@@ -15,7 +15,11 @@ class ProductController extends Controller
     /* funcion que se ejecuta el la raiz */
     function index(){
 
-        return \view('welcome');
+        $productos = Producto::all(); 
+
+        $categorias = Categoria::all();
+
+        return \view('welcome', compact('productos','categorias'));
     }
 
 

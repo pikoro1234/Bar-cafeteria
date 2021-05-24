@@ -10,3 +10,14 @@
     opacity: .8;
     object-fit: cover;
 }
+
+.card{
+    position: relative;
+}
+
+.badge-flotante{
+    position: absolute;
+    right: -75px;
+    top: -16px;
+    padding: 10px 30px!important;
+}
