@@ -32,7 +32,7 @@
             <div class="input-group mb-3">
                 <select class="custom-select" id="estado" name="estado">
                     <option selected>Estado producto</option>
-                    <option value="descuentro">descuentro</option>
+                    <option value="descuento">descuento</option>
                     <option value="promocion">promoción</option>
                     <option value="agotados">agotados</option>
                 </select>

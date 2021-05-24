@@ -50,11 +50,13 @@
                             <div class="col-lg-3 col-12">
                                 <form action="" class="form">
                                     <div class="input-group mb-3">
-                                        <select class="custom-select" id="inputGroupSelect02">
-                                            <option selected>Filtrar categorias</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                        <select class="custom-select" id="inputGroupSelect02" name="categoriaHome">
+                                            <option >Filtrar categorias</option>
+                                            @if ($categorias)
+                                                @foreach($categorias as $cat)
+                                                    <option value="{{$cat['id']}}">{{$cat['nombre']}}</option>                                                                                                           
+                                                @endforeach
+                                            @endif                                            
                                         </select>                                    
                                     </div>
                                     <div class="input-group mb-3">
@@ -108,7 +110,7 @@
                             <div class="col-lg-3 col-12">
                                 <form class="form-inline my-2 my-lg-0 d-lg-flex d-block">
                                     <div class="input-group mb-3 w-100">
-                                        <input class="form-control px-lg-4 d-block w-100" type="search" placeholder="Buscar" aria-label="Search">
+                                        <input class="form-control px-lg-4 d-block w-100" type="search" placeholder="Buscar" aria-label="Search" name="prodBuscar">
                                     </div>
                                     <div class="input-group mb-3">
                                         <button class="btn btn-outline-success my-2 my-sm-0 px-lg-4 mx-lg-4" type="submit">Bsucar producto</button>
@@ -132,7 +134,7 @@
             @if ($productos)
                 @foreach($productos as $product)
                     <div class="col-lg-4 col-12">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" style="width: 20rem;">
                             @if($product['estado'] == 'descuento')
                                 <span class="badge badge-success badge-flotante">{{$product['estado']}}</span>
                             @elseif($product['estado'] == 'promocion')
@@ -140,8 +142,7 @@
                             @elseif($product['estado'] == 'agotados')
                                 <span class="badge badge-danger badge-flotante">{{$product['estado']}}</span>
                             @endif
-                            
-                            <img src="..." class="card-img-top" alt="...">
+                            <img src="{{ asset('uploads/') }}/{{$product['foto']}}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title font-weight-bold text-uppercase">{{$product['nombre']}}</h5>
                                 <p class="card-text">{{$product['descripcion']}}</p>
@@ -153,8 +154,18 @@
                                         @endif 
                                     @endforeach
                                 @endif 
+
+
+                                @if (Route::has('login'))
+                                <div class="px-6">
+                                    @auth
+                                        <a href="{{route('edit-product',$product['id'])}}" class="btn btn-primary">Editar</a>
+                                    @else
+                                    <a href="#" class="btn btn-primary">Ver mas...</a>
+                                    @endauth
+                                </div>
+                                @endif
                                 
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
                         </div> 
                     </div>                               

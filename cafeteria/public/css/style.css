@@ -15,9 +15,19 @@
     position: relative;
 }
 
+.card .card-img-top{
+    height: 200px!important;
+    width: 318px!important;
+}
+
+.card .card-body{
+    height: 260px!important;
+}
+
 .badge-flotante{
     position: absolute;
-    right: -75px;
-    top: -16px;
+    right: -48px;
+    top: -20px;
     padding: 10px 30px!important;
+    z-index: 100;
 }
