@@ -62,9 +62,19 @@ class ProductController extends Controller
 
             return \view('welcome', compact('productosA','categorias'));
 
+        }elseif($request->prodBuscar){
+
+            $palabraBuscar = $request->prodBuscar;
+
+            $productosA = DB::table('productos')
+            ->where('nombre', 'LIKE', "%{$palabraBuscar}%")
+            ->get();
+
+            return \view('welcome', compact('productosA','categorias'));
+               
         }else{
 
-            $productos = Producto::all(); 
+            $productos = Producto::paginate(6); 
 
             return \view('welcome', compact('productos','categorias'));
         }
@@ -76,8 +86,12 @@ class ProductController extends Controller
     /* mostramos todos los productos */
     function listadoProductos(){
         
-        $productos = Producto::all();   
+        $usuario = Auth::id();
 
+        $productos = DB::table('productos')
+            ->where('usuario_id', '=', $usuario)
+            ->get();
+        
         return \view('principal', compact('productos'));
     }
 

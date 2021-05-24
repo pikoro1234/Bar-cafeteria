@@ -22,14 +22,14 @@
         @if ($productos)
             @foreach($productos as $product)
             <tr>        
-            <th scope="row">{{$product['id']}}</th>
-            <td><a href="{{route('edit-product',$product['id'])}}"><img src="{{ asset('uploads/') }}/{{$product['foto']}}" class="img-listado" alt="..."></a></td>        
-            <td class="font-bold">{{$product['nombre']}}</td>
-            <td>{{$product['estado']}}</td>
-            <td>{{$product['precio']}}</td>
-            <td>{{$product['categoria_id']}}</td>
-            <td>{{$product['distribuidor_id']}}</td>
-            <td><a href="{{route('delete-product',$product['id'])}}" class="btn btn-outline-secondary">Eliminar</a></td>
+            <th scope="row">{{$product->id}}</th>
+            <td><a href="{{route('edit-product',$product->id)}}"><img src="{{ asset('uploads/') }}/{{$product->foto}}" class="img-listado" alt="..."></a></td>        
+            <td class="font-bold">{{$product->nombre}}</td>
+            <td>{{$product->estado}}</td>
+            <td>{{$product->precio}}</td>
+            <td>{{$product->categoria_id}}</td>
+            <td>{{$product->distribuidor_id}}</td>
+            <td><a href="{{route('delete-product',$product->id)}}" class="btn btn-outline-secondary">Eliminar</a></td>
             </tr>
             @endforeach
         @endif

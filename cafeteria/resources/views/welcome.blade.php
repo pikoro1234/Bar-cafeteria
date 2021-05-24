@@ -113,7 +113,7 @@
                                         <input class="form-control px-lg-4 d-block w-100" type="search" placeholder="Buscar" aria-label="Search" name="prodBuscar">
                                     </div>
                                     <div class="input-group mb-3">
-                                        <button class="btn btn-outline-success my-2 my-sm-0 px-lg-4 mx-lg-4" type="submit">Bsucar producto</button>
+                                        <button class="btn btn-outline-success my-2 my-sm-0 px-lg-4 mx-lg-4" type="submit">Buscar producto</button>
                                     </div>                                                                        
                                 </form> 
                             </div>
@@ -131,7 +131,7 @@
 
         <div class="container mt-lg-5 mt-5 pt-lg-5 pt-5 mb-lg-5 mb-5 pb-lg-5 pb-5">
             <div class="row">
-                <?php if( isset($_GET['categoriaHome']) || (isset($_GET['desde']) && isset($_GET['hasta'])) || isset($_GET['fecha']) ){?>                    
+                <?php if( isset($_GET['categoriaHome']) || (isset($_GET['desde']) && isset($_GET['hasta'])) || isset($_GET['fecha']) || isset($_GET['prodBuscar'])  ){?>                    
                         @foreach($productosA as $product)
                             <div class="col-lg-4 col-12 mb-lg-5 mb-5">
                                 <div class="card" style="width: 20rem;">
@@ -168,7 +168,7 @@
                                     </div>
                                 </div> 
                             </div>                               
-                        @endforeach
+                        @endforeach                   
                 <?php }else{ ?>
                         @foreach($productos as $product)
                         <div class="col-lg-4 col-12 mb-lg-5 mb-5">
@@ -206,18 +206,13 @@
                                 </div>
                             </div> 
                         </div>                               
-                        @endforeach                    
-                    <?php }?>  
+                        @endforeach   
 
+                         <!-- paginacion -->
+                        <div class="container d-flex justify-content-center mt-lg-5 mt-5 pt-lg-5">{{ $productos->links() }}</div>
 
-
-
-
-
-
-
-                        
-            </div>
+                    <?php }?>   
+            </div>                    
         </div>
 
 
