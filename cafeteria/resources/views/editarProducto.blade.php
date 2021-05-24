@@ -12,14 +12,6 @@
             @csrf
 
             <div class="input-group mb-3">                
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="imagen" name="imagenProd" aria-describedby="inputGroupFileAddon01">
-                    <label class="custom-file-label" for="inputGroupFile01">Subir imagen</label>
-                </div>
-            </div>
-            <br>
-
-            <div class="input-group mb-3">                
                 <input type="text" class="form-control" placeholder="Nombre producto" id="nombre" name="nombreProd" aria-label="Nombre producto" aria-describedby="basic-addon1" value="{{$datosProductos->nombre}}">
             </div>
             <br>

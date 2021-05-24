@@ -49,7 +49,13 @@ class ProductController extends Controller
 
         $producto->usuario_id = Auth::id();
 
-        $producto->foto = $request->imagen;
+        $imagen = $request->file('imagen');
+
+        $nombre = time()."_".$imagen->getClientOriginalName();
+
+        $imagen->move('uploads', $nombre);
+
+        $producto->foto = $nombre;
 
         $producto->nombre = $request->nombre;
 

@@ -6,7 +6,7 @@
 @endif
 <div class="container mb-lg-5 mb-4">
     <div class="card mb-lg-5 mb-4">
-        <form class="mb-lg-5 mb-4 p-lg-5 p-4" method="POST" action="{{route ('create-product')}}">
+        <form class="mb-lg-5 mb-4 p-lg-5 p-4" method="POST" action="{{route ('create-product')}}" enctype="multipart/form-data">
 
             @csrf
 
