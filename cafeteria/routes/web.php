@@ -48,6 +48,12 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/crear-categoria', [Categ
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/crear-producto', [CategoriaController::class, 'listadoCategorias'])->name('create-product');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/lista-categorias', [CategoriaController::class, 'todasCategorias'])->name('list-category');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/editarCategoria/{id}', [CategoriaController::class,'editarCategoria'])->name('edit-category');
+
+Route::middleware(['auth:sanctum', 'verified'])->post('/editarCategoria/{id}', [CategoriaController::class,'actualizarCategoria'])->name('edit-category');
+
 
 
 /* RUTAS PARA LOS DISTRIBUIDORES */

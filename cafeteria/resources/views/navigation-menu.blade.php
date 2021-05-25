@@ -24,12 +24,12 @@
                     <x-jet-nav-link href="{{ route('create-category') }}" :active="request()->routeIs('create-category')">
                         {{ __('Crear Categoria') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('list-category') }}" :active="request()->routeIs('list-category')">
+                        {{ __('Categorias') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('create-distributed') }}" :active="request()->routeIs('create-distributed')">
                         {{ __('Crear Distribuidor') }}
-                    </x-jet-nav-link>                                                        
-                    <x-jet-nav-link href="{{ route('crear-cliente') }}" :active="request()->routeIs('crear-cliente')">
-                        {{ __('Crear Cliente') }}
-                    </x-jet-nav-link>                   
+                    </x-jet-nav-link>                                                                                           
                 </div>
             </div>
 

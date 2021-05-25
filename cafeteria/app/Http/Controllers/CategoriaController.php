@@ -36,4 +36,30 @@ class CategoriaController extends Controller
 
     }
 
+    function todasCategorias(){
+
+        $listCategorias = Categoria::all();
+            
+        return \view('listaCategorias', compact('listCategorias'));
+    }
+
+    function editarCategoria(Request $request,$id){
+
+        $datoCategria = Categoria::find($id);
+
+        return view('editarCategoria', compact('datoCategria'));
+    }
+
+    function actualizarCategoria(Request $request,$id){
+
+        $catActualizar = Categoria::find($id);
+
+        $catActualizar->nombre = $request->nombreCategoriaEdit;
+
+        $catActualizar->save();
+        
+        return redirect()->route('list-category');
+
+    }
+
 }
