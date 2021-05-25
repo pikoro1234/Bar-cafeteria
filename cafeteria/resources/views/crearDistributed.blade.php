@@ -15,7 +15,7 @@
             </div>
             <br>
 
-            <button type="submit" class="btn btn-primary mb-lg-5 mb-5 d-block w-100 py-lg-4">Submit</button>
+            <button type="submit" class="btn btn-primary mb-lg-5 mb-5 d-block w-100 py-lg-4">crear distribuidor</button>
             <br>
 
         </form>
