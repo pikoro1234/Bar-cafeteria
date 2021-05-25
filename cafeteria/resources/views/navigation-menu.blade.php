@@ -18,15 +18,15 @@
                     <x-jet-nav-link href="{{ route('principal') }}" :active="request()->routeIs('principal')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link> 
+                    <x-jet-nav-link href="{{ route('create-product') }}" :active="request()->routeIs('create-product')">
+                        {{ __('Crear Producto') }}
+                    </x-jet-nav-link>    
                     <x-jet-nav-link href="{{ route('create-category') }}" :active="request()->routeIs('create-category')">
                         {{ __('Crear Categoria') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('create-distributed') }}" :active="request()->routeIs('create-distributed')">
                         {{ __('Crear Distribuidor') }}
-                    </x-jet-nav-link> 
-                    <x-jet-nav-link href="{{ route('create-product') }}" :active="request()->routeIs('create-product')">
-                        {{ __('Crear Producto') }}
-                    </x-jet-nav-link>                                       
+                    </x-jet-nav-link>                                                        
                     <x-jet-nav-link href="{{ route('crear-cliente') }}" :active="request()->routeIs('crear-cliente')">
                         {{ __('Crear Cliente') }}
                     </x-jet-nav-link>                   
