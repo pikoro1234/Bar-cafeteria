@@ -1,6 +1,6 @@
 @extends('dashboard')
 @section('containerDinamic')
-<h1 class="text-center mt-lg-5 mb-lg-5 mt-3 mb-5">Todas las categorias</h1>
+<h1 class="text-center mt-lg-5 mb-lg-5 mt-3 mb-5">Todos los distribuidores</h1>
 @if ( session('mensaje') )
     <div class="alert alert-success text-center text-uppercase w-50 mx-auto py-4 mb-lg-5">{{ session('mensaje') }}</div>
 @endif
@@ -14,12 +14,12 @@
             </tr>
         </thead>
         <tbody>    
-        @if ($listCategorias)
-            @foreach($listCategorias as $cat)
+        @if ($listDistribuidores)
+            @foreach($listDistribuidores as $dist)
             <tr>        
-            <th scope="row">{{$cat->id}}</th>
-            <td><a href="{{route('edit-category',$cat->id)}}" class="">{{$cat->nombre}}</a></td>        
-            <!-- <td><a href="{{route('delete-product',$cat->id)}}" class="btn btn-outline-secondary">Eliminar</a></td>
+            <th scope="row">{{$dist->id}}</th>
+            <td><a href="{{route('edit-distributed',$dist->id)}}" class="">{{$dist->nombre}}</a></td>        
+            <!-- <td><a href="{{route('delete-product',$dist->id)}}" class="btn btn-outline-secondary">Eliminar</a></td>
             </tr> -->
             @endforeach
         @endif

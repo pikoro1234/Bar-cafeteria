@@ -61,4 +61,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/crear-distribuidor', [Dis
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/crear-distribuidor', [DistribuidorController::class, 'crearDistribuidor'])->name('create-distributed');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/lista-distribuidores', [DistribuidorController::class, 'todosDistribuidores'])->name('list-distributed');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/editarDistribuidor/{id}', [DistribuidorController::class,'editarDistribuidor'])->name('edit-distributed');
+
+Route::middleware(['auth:sanctum', 'verified'])->post('/editarDistribuidor/{id}', [DistribuidorController::class,'actualizarDistribuidor'])->name('edit-distributed');
+
 

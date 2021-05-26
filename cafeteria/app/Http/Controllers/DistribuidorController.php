@@ -25,4 +25,11 @@ class DistribuidorController extends Controller
         
     }
 
+    function todosDistribuidores(){
+
+        $listDistribuidores = Distribuidor::all();
+            
+        return \view('listaDistribuidor', compact('listDistribuidores'));
+    }
+
 }

@@ -29,6 +29,9 @@
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('create-distributed') }}" :active="request()->routeIs('create-distributed')">
                         {{ __('Crear Distribuidor') }}
+                    </x-jet-nav-link> 
+                    <x-jet-nav-link href="{{ route('list-distributed') }}" :active="request()->routeIs('list-distributed')">
+                        {{ __('Distribuidores') }}
                     </x-jet-nav-link>                                                                                           
                 </div>
             </div>
