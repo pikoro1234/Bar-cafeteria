@@ -32,4 +32,22 @@ class DistribuidorController extends Controller
         return \view('listaDistribuidor', compact('listDistribuidores'));
     }
 
+    function editarDistribuidor(Request $request,$id){
+
+        $datoDistribuidor = Distribuidor::find($id);
+
+        return view('editarDistribuidor', compact('datoDistribuidor'));
+    }
+
+    function actualizarDistribuidor(Request $request,$id){
+
+        $distActualizar = Distribuidor::find($id);
+
+        $distActualizar->nombre = $request->nombreDistriEdit;
+
+        $distActualizar->save();
+        
+        return redirect()->route('list-distributed');
+    }
+
 }
